@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ani The Stress Buster</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🌟 Ani The Stress Buster 🌟</h1>
+    <p>Your one-stop space to relax, breathe, and smile!</p>
+  </header>
+
+  <section class="feature-section">
+    <button onclick="showQuote()">💬 Show Quote</button>
+    <p id="quote-box">Click to get inspired!</p>
+
+    <button onclick="toggleMusic()">🎵 Play/Pause Music</button>
+    <audio id="bg-music" loop>
+      <<source src="relaxing.mp3" type="audio/mpeg">>
+    </audio>
+
+    <button onclick="startBreathing()">🧘 Start Breathing</button>
+    <div id="breathing-box">Inhale...Exhale</div>
+
+    <a href="game.html" ><button>🎮 Play Tic Tac Toe</button></a>
+    <a href="pomodora.html" class="link-button">⏱️ Use Pomodoro Timer</a>
+    <a href="breath.html" class="link-button">🌬️ Guided Breathing</a>
+    <a href="mood.html" class="link-button">🌬️ Track Your Mood Here</a>
+
+
+  </section>
+
+  <script src="script.js"></script>
+  <script src="music.js"></script>
+</body>
+</html>
