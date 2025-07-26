@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Breathing Exercise - Stress Buster</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #00695c;
+    }
+
+    #circle {
+      width: 150px;
+      height: 150px;
+      background-color: #80deea;
+      border-radius: 50%;
+      margin: 50px auto;
+      animation: none;
+    }
+
+    #instructions {
+      font-size: 1.5em;
+      color: #004d40;
+    }
+
+    @keyframes breatheInOut {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.5); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #4db6ac;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00796b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧘‍♀️ Breathe with Me</h1>
+  <div id="circle"></div>
+  <p id="instructions">Click start to begin</p>
+  <button onclick="startBreathing()">Start Breathing</button>
+
+  <script>
+    const circle = document.getElementById("circle");
+    const instructions = document.getElementById("instructions");
+
+    function startBreathing() {
+      let cycle = 0;
+      breathe();
+
+      function breathe() {
+        instructions.innerText = "Inhale...";
+        circle.style.animation = "breatheInOut 6s ease-in-out forwards";
+        setTimeout(() => {
+          instructions.innerText = "Hold...";
+        }, 3000);
+        setTimeout(() => {
+          instructions.innerText = "Exhale...";
+        }, 4000);
+        setTimeout(() => {
+          cycle++;
+          if (cycle < 5) {
+            breathe();
+          } else {
+            instructions.innerText = "Well done! 😊";
+            circle.style.animation = "none";
+          }
+        }, 6000);
+      }
+    }
+  </script>
+
+</body>
+</html>
