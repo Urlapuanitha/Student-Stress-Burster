@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ani The Stress Buster</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>🌟 Ani The Stress Buster 🌟</h1>
-    <p>Your one-stop space to relax, breathe, and smile!</p>
-  </header>
+  <div class="container">
+    <header>
+      <h1>✨ Ani The Stress Buster ✨</h1>
+      <p>Your one-stop space to relax, breathe, and smile!</p>
+    </header>
 
-  <section class="feature-section">
-    <button onclick="showQuote()">💬 Show Quote</button>
-    <p id="quote-box">Click to get inspired!</p>
+    <main>
+      <button id="quote-btn">💬 Show Quote</button>
+      <p class="subtitle">Click to get inspired!</p>
 
-    <button onclick="toggleMusic()">🎵 Play/Pause Music</button>
-    <audio id="bg-music" loop>
-      <<source src="relaxing.mp3" type="audio/mpeg">>
-    </audio>
+      <div class="actions">
+        <a href="relax.html" class="link-button">🎵 Relax with Music</a>
+        <a href="breathing.html" class="link-button">🧘 Start Breathing</a>
+      </div>
 
-    <button onclick="startBreathing()">🧘 Start Breathing</button>
-    <div id="breathing-box">Inhale...Exhale</div>
+      <p class="inhale">Inhale...Exhale</p>
 
-    <a href="game.html" ><button>🎮 Play Tic Tac Toe</button></a>
-    <a href="pomodora.html" class="link-button">⏱️ Use Pomodoro Timer</a>
-    <a href="breath.html" class="link-button">🌬️ Guided Breathing</a>
-    <a href="mood.html" class="link-button">🌬️ Track Your Mood Here</a>
+      <div class="features">
+        <a href="tic-tac-toe.html">🎮 Play Tic Tac Toe</a>
+        <a href="pomodoro.html">⏱️ Use Pomodoro Timer</a>
+        <a href="breathing.html">🌬️ Guided Breathing</a>
+        <a href="mood.html">📊 Track Your Mood</a>
+      </div>
+    </main>
 
-
-  </section>
+    <div id="quote-box"></div>
+  </div>
 
   <script src="script.js"></script>
-  <script src="music.js"></script>
 </body>
 </html>
