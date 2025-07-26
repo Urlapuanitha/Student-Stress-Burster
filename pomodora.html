@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Timer - Stress Buster</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #fefae0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    #timer {
+      font-size: 3em;
+      margin: 20px;
+      color: #6a994e;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 1em;
+      background-color: #a7c957;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #6a994e;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⏱️ Pomodoro Timer</h1>
+  <p>Focus for 25 minutes, then take a 5-minute break.</p>
+
+  <div id="timer">25:00</div>
+  <button onclick="startTimer()">Start</button>
+  <button onclick="resetTimer()">Reset</button>
+
+  <script>
+    let duration = 25 * 60; // 25 minutes
+    let timer;
+    let isRunning = false;
+
+    function startTimer() {
+      if (isRunning) return;
+      isRunning = true;
+
+      timer = setInterval(() => {
+        if (duration <= 0) {
+          clearInterval(timer);
+          document.getElementById("timer").innerText = "Time's up! 🎉 Take a break!";
+          isRunning = false;
+        } else {
+          duration--;
+          let minutes = Math.floor(duration / 60);
+          let seconds = duration % 60;
+          document.getElementById("timer").innerText =
+            `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+      }, 1000);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      duration = 25 * 60;
+      isRunning = false;
+      document.getElementById("timer").innerText = "25:00";
+    }
+  </script>
+</body>
+</html>
