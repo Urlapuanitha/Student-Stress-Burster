@@ -16,25 +16,25 @@
     }
 
     @keyframes breatheAnimation {
-      0% { transform: scale(1); opacity: 0.7; }
-      50% { transform: scale(1.4); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.7; }
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.5); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.6; }
     }
 
     .instruction {
-      font-size: 1.4em;
-      color: #0984e3;
-      animation: textPulse 8s infinite ease-in-out;
+      font-size: 1.5em;
+      color: #00b894;
+      animation: fadeText 8s infinite;
+      margin-top: 20px;
     }
 
-    @keyframes textPulse {
-      0%, 100% { content: "Inhale..."; }
-      50% { content: "Exhale..."; }
+    @keyframes fadeText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
     }
 
-    .cycle {
+    .cycle-note {
       margin-top: 10px;
-      font-size: 1em;
       color: #636e72;
     }
   </style>
@@ -44,27 +44,23 @@
     <h2>🌬️ Guided Breathing</h2>
     <p class="instruction" id="instruction">Inhale...</p>
     <div class="breath-circle"></div>
-    <p class="cycle">Follow the rhythm: Inhale 4s, Hold 2s, Exhale 4s</p>
-    <a href="index.html" class="link-button">⬅️ Back to Home</a>
+    <p class="cycle-note">Follow the rhythm: Inhale (4s), Hold (2s), Exhale (4s)</p>
+    <a href="index.html" class="link-button" style="margin-top: 20px;">⬅️ Back to Home</a>
   </div>
 
   <script>
     const instruction = document.getElementById('instruction');
-    let cycle = 0;
     const phases = ['Inhale...', 'Hold...', 'Exhale...'];
+    const durations = [4000, 2000, 4000];
+    let index = 0;
 
-    function breathingCycle() {
-      const phase = phases[cycle % phases.length];
-      instruction.textContent = phase;
-
-      let timeout = 4000;
-      if (phase === 'Hold...') timeout = 2000;
-
-      setTimeout(breathingCycle, timeout);
-      cycle++;
+    function updateBreathing() {
+      instruction.textContent = phases[index];
+      setTimeout(updateBreathing, durations[index]);
+      index = (index + 1) % phases.length;
     }
 
-    breathingCycle();
+    updateBreathing();
   </script>
 </body>
 </html>
