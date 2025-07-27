@@ -11,29 +11,31 @@
   <div class="container">
     <header>
       <h1>✨ Ani The Stress Buster ✨</h1>
-      <p>Your one-stop space to relax, breathe, and smile!</p>
+      <p class="subtitle">Your one-stop space to relax, breathe, and smile!</p>
     </header>
 
     <main>
-      <button id="quote-btn">💬 Show Quote</button>
-      <p class="subtitle">Click to get inspired!</p>
+      <section class="quote-section">
+        <button id="quote-btn">💬 Show Quote</button>
+        <p class="instruction">Click the button above to get inspired!</p>
+        <div id="quote-box" class="quote-box"></div>
+      </section>
 
-      <div class="actions">
-        <a href="relax.html" class="link-button">🎵 Relax with Music</a>
-        <a href="breath.html" class="link-button">🧘 Start Breathing</a>
-      </div>
-
-      <p class="inhale">Inhale...Exhale</p>
-
-      <div class="features">
-        <a href="game.html">🎮 Play Tic Tac Toe</a>
-        <a href="pomodoro.html">⏱️ Use Pomodoro Timer</a>
-        <a href="breath.html">🌬️ Guided Breathing</a>
-        <a href="mood.html">📊 Track Your Mood</a>
-      </div>
+      <section class="actions">
+        <h2>🌈 Choose an Activity</h2>
+        <div class="button-group">
+          <a href="relax.html" class="link-button">🎵 Relax with Music</a>
+          <a href="breath.html" class="link-button">🧘 Guided Breathing</a>
+          <a href="game.html" class="link-button">🎮 Play Tic Tac Toe</a>
+          <a href="pomodoro.html" class="link-button">⏱️ Pomodoro Timer</a>
+          <a href="mood.html" class="link-button">📊 Track Your Mood</a>
+        </div>
+      </section>
     </main>
 
-    <div id="quote-box"></div>
+    <footer>
+      <p>Made with ❤️ by Anitha</p>
+    </footer>
   </div>
 
   <script src="script.js"></script>
