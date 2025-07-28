@@ -5,13 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Relax with Music</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .search-box {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .search-box input {
+      padding: 10px;
+      width: 60%;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+
+    .search-box button {
+      padding: 10px 16px;
+      border: none;
+      background-color: #1DB954;
+      color: white;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .search-box button:hover {
+      background-color: #1ed760;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h2>🎵 Relaxing Music</h2>
     <p>Let calming sounds soothe your mind...</p>
 
-    <!-- Spotify Artist Embed -->
+    <!-- Spotify Embed -->
     <iframe 
       style="border-radius:12px" 
       src="https://open.spotify.com/embed/artist/1uNFoZAHBGtllmzznpCI3s?utm_source=generator" 
@@ -20,9 +50,25 @@
       loading="lazy">
     </iframe>
 
+    <!-- Search Bar -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search for a song or album...">
+      <button onclick="searchSpotify()">Search</button>
+    </div>
+
     <div style="margin-top: 20px;">
       <a href="index.html" class="link-button">⬅️ Back to Home</a>
     </div>
   </div>
+
+  <script>
+    function searchSpotify() {
+      const query = document.getElementById('searchInput').value.trim();
+      if (query !== "") {
+        const spotifySearchURL = `https://open.spotify.com/search/${encodeURIComponent(query)}`;
+        window.open(spotifySearchURL, '_blank');
+      }
+    }
+  </script>
 </body>
 </html>
