@@ -6,32 +6,41 @@
   <title>Relax with Music</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .search-box {
-      margin: 20px 0;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
 
-    .search-box input {
+    select {
       padding: 10px;
-      width: 60%;
       border-radius: 10px;
-      border: 1px solid #ccc;
       font-size: 1em;
+      margin: 15px 0;
     }
 
-    .search-box button {
-      padding: 10px 16px;
-      border: none;
+    iframe {
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .link-button {
       background-color: #1DB954;
+      padding: 10px 20px;
       color: white;
-      font-size: 1em;
+      border: none;
       border-radius: 10px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
       cursor: pointer;
     }
 
-    .search-box button:hover {
+    .link-button:hover {
       background-color: #1ed760;
     }
   </style>
@@ -39,35 +48,26 @@
 <body>
   <div class="container">
     <h2>🎵 Relaxing Music</h2>
-    <p>Let calming sounds soothe your mind...</p>
+    <p>Select a playlist to relax your mind...</p>
 
-    <!-- Spotify Embed -->
-    <iframe 
-      style="border-radius:12px" 
-      src="https://open.spotify.com/embed/artist/1uNFoZAHBGtllmzznpCI3s?utm_source=generator" 
-      width="100%" height="352" frameborder="0" 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy">
-    </iframe>
+    <select id="playlistSelect" onchange="changePlaylist()">
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u">Deep Focus</option>
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX3PIPIT6lEg5">Peaceful Piano</option>
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY">Nature Sounds</option>
+      <option value="https://open.spotify.com/embed/artist/1uNFoZAHBGtllmzznpCI3s">Justin Bieber (Your Example)</option>
+    </select>
 
-    <!-- Search Bar -->
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search for a song or album...">
-      <button onclick="searchSpotify()">Search</button>
-    </div>
+    <iframe id="spotifyEmbed" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-    <div style="margin-top: 20px;">
+    <div>
       <a href="index.html" class="link-button">⬅️ Back to Home</a>
     </div>
   </div>
 
   <script>
-    function searchSpotify() {
-      const query = document.getElementById('searchInput').value.trim();
-      if (query !== "") {
-        const spotifySearchURL = `https://open.spotify.com/search/${encodeURIComponent(query)}`;
-        window.open(spotifySearchURL, '_blank');
-      }
+    function changePlaylist() {
+      const url = document.getElementById('playlistSelect').value;
+      document.getElementById('spotifyEmbed').src = url;
     }
   </script>
 </body>
