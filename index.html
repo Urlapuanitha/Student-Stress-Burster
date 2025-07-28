@@ -24,32 +24,10 @@
       <a href="tic-tac-toe.html" class="btn tic">🎮 Play Tic Tac Toe</a>
       <a href="pomodoro.html" class="btn pomo">⏱️ Pomodoro Timer</a>
       <a href="mood.html" class="btn mood">📊 Track Your Mood</a>
-      <button class="btn journal" onclick="openJournal()">📓 Gratitude Journal</button>
-    </div>
-
-    <div class="toggle-container">
-      <label class="switch">
-        <input type="checkbox" id="darkToggle">
-        <span class="slider round"></span>
-      </label>
-      <span>🌙 Dark Mode</span>
-    </div>
-  </div>
-
-  <!-- Gratitude Journal Modal -->
-  <div class="journal-popup" id="journalPopup">
-    <div class="popup-content">
-      <h3>Gratitude Journal</h3>
-      <textarea id="journalText" placeholder="Write something you're grateful for..."></textarea>
-      <div class="popup-buttons">
-        <button onclick="saveJournal()">Save</button>
-        <button onclick="closeJournal()">Close</button>
-      </div>
     </div>
   </div>
 
   <script>
-    // Quote button
     document.getElementById("quoteBtn").addEventListener("click", function () {
       const quotes = [
         "You are stronger than you think.",
@@ -60,28 +38,6 @@
       ];
       const random = Math.floor(Math.random() * quotes.length);
       document.getElementById("quoteBox").innerText = quotes[random];
-    });
-
-    // Gratitude Journal
-    function openJournal() {
-      document.getElementById("journalPopup").style.display = "block";
-      document.getElementById("journalText").value = localStorage.getItem("journalEntry") || "";
-    }
-
-    function closeJournal() {
-      document.getElementById("journalPopup").style.display = "none";
-    }
-
-    function saveJournal() {
-      const entry = document.getElementById("journalText").value;
-      localStorage.setItem("journalEntry", entry);
-      alert("Saved!");
-    }
-
-    // Dark mode toggle
-    const darkToggle = document.getElementById("darkToggle");
-    darkToggle.addEventListener("change", function () {
-      document.body.classList.toggle("dark-mode", this.checked);
     });
   </script>
 </body>
