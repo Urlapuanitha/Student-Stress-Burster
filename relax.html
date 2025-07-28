@@ -3,71 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Relax with Music</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Relaxing Music</title>
   <style>
-    .container {
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      text-align: center;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fceabb, #f8b500);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
     }
 
-    select {
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 1em;
-      margin: 15px 0;
+    .container {
+      background-color: #fff;
+      border-radius: 25px;
+      padding: 40px;
+      width: 90%;
+      max-width: 700px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 25px;
     }
 
     iframe {
       border-radius: 12px;
-      margin-top: 20px;
+      margin-bottom: 25px;
     }
 
     .link-button {
-      background-color: #1DB954;
-      padding: 10px 20px;
+      background-color: #27cd4f;
       color: white;
-      border: none;
-      border-radius: 10px;
+      padding: 12px 24px;
+      border-radius: 12px;
       text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
       display: inline-block;
-      margin-top: 20px;
-      cursor: pointer;
     }
 
     .link-button:hover {
-      background-color: #1ed760;
+      background-color: #1fa43e;
+    }
+
+    select {
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>🎵 Relaxing Music</h2>
-    <p>Select a playlist to relax your mind...</p>
+    <p>Let calming sounds soothe your mind...</p>
 
-    <select id="playlistSelect" onchange="changePlaylist()">
-      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u">Deep Focus</option>
-      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX3PIPIT6lEg5">Peaceful Piano</option>
-      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX3Ogo9pFvBkY">Nature Sounds</option>
-      <option value="https://open.spotify.com/embed/artist/1uNFoZAHBGtllmzznpCI3s">Justin Bieber (Your Example)</option>
+    <!-- Dropdown for selecting playlists -->
+    <select id="playlistSelect" onchange="updatePlayer()">
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DWU0ScTcjJBdj">Peaceful Piano</option>
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX3PIPIT6lEg5">Calm Vibes</option>
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u">Chillout Lounge</option>
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO">Sleep</option>
+      <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX4E3UdUs7fUx">Relaxing Sounds of Nature</option>
     </select>
 
-    <iframe id="spotifyEmbed" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <!-- Spotify player iframe -->
+    <iframe id="spotifyPlayer"
+      src="https://open.spotify.com/embed/playlist/37i9dQZF1DWU0ScTcjJBdj"
+      width="100%" height="352" frameborder="0" allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
 
+    <!-- Back to Home Button -->
     <div>
       <a href="index.html" class="link-button">⬅️ Back to Home</a>
     </div>
   </div>
 
   <script>
-    function changePlaylist() {
-      const url = document.getElementById('playlistSelect').value;
-      document.getElementById('spotifyEmbed').src = url;
+    function updatePlayer() {
+      const selected = document.getElementById('playlistSelect').value;
+      document.getElementById('spotifyPlayer').src = selected;
     }
   </script>
 </body>
