@@ -3,38 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ani The Stress Buster</title>
+  <title>Relax Zone</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>✨ Ani The Stress Buster ✨</h1>
-      <p class="subtitle">Your one-stop space to relax, breathe, and smile!</p>
-    </header>
 
-    <main>
-      <section class="quote-section">
-        <button id="quote-btn">💬 Show Quote</button>
-        <p class="instruction">Click the button above to get inspired!</p>
-        <div id="quote-box" class="quote-box"></div>
-      </section>
+  <header class="header">
+    <h1>🌿 Relax & Rejuvenate</h1>
+    <div class="toggle-container">
+      <label class="toggle-switch">
+        <input type="checkbox" id="darkToggle" onchange="toggleDarkMode()">
+        <span class="slider round"></span>
+      </label>
+      <span class="dark-label">🌙 Dark Mode</span>
+    </div>
+  </header>
 
-      <section class="actions">
-  <h2>🌈 Choose an Activity</h2>
-  <div class="button-group">
-    <a href="relax.html" class="link-button">🎵 Relax with Music</a>
-    <a href="breath.html" class="link-button">🧘 Guided Breathing</a>
-    <a href="game.html" class="link-button">🎮 Play Tic Tac Toe</a>
-    <a href="pomodoro.html" class="link-button">⏱️ Pomodoro Timer</a>
-    <a href="mood.html" class="link-button">📊 Track Your Mood</a>
+  <main class="main-container">
+    <section class="spotify-section">
+      <h2>🎶 Soothing Album</h2>
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/2Lxoc72vRTGdQfMvj7Ovi1?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </section>
+
+    <section class="journal-section">
+      <button class="activity-button" onclick="toggleJournal()">📝 Open Gratitude Journal</button>
+    </section>
+  </main>
+
+  <!-- Gratitude Journal Modal -->
+  <div id="journalModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="toggleJournal()">&times;</span>
+      <h2>🌸 What are you grateful for today?</h2>
+      <textarea id="gratitudeText" rows="6" placeholder="Write down your gratitude..."></textarea>
+      <br>
+      <button onclick="saveGratitude()">💾 Save</button>
+      <button onclick="loadGratitude()">📂 Load Previous</button>
+    </div>
   </div>
-</section>
 
-    </main>
-  </div>
+  <script>
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
 
-  <script src="script.js"></script>
+    // Gratitude Journal Modal
+    function toggleJournal() {
+      const modal = document.getElementById("journalModal");
+      modal.style.display = modal.style.display === "block" ? "none" : "block";
+    }
+
+    function saveGratitude() {
+      const text = document.getElementById("gratitudeText").value;
+      localStorage.setItem("myGratitude", text);
+      alert("Gratitude saved! 💖");
+    }
+
+    function loadGratitude() {
+      const saved = localStorage.getItem("myGratitude");
+      document.getElementById("gratitudeText").value = saved || "";
+      alert("Gratitude loaded! ✨");
+    }
+  </script>
+
 </body>
 </html>
