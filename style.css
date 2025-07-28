@@ -1,4 +1,5 @@
 /* style.css */
+
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
@@ -51,9 +52,26 @@ header p {
 .subtitle {
   font-style: italic;
   margin-bottom: 20px;
+  color: #444;
 }
 
-.actions, .features {
+.quote-box {
+  margin-top: 20px;
+  font-size: 1.1em;
+  color: #2f3640;
+  padding: 15px;
+  background: #dcdde1;
+  border-radius: 12px;
+  display: none;
+}
+
+/* Action section */
+.actions h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.button-group {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
@@ -61,7 +79,7 @@ header p {
   margin-bottom: 20px;
 }
 
-.link-button, .features a {
+.link-button {
   background: #4cd137;
   color: #fff;
   padding: 10px 16px;
@@ -69,12 +87,16 @@ header p {
   text-decoration: none;
   transition: background 0.3s ease;
   font-weight: bold;
+  display: inline-block;
+  min-width: 160px;
+  text-align: center;
 }
 
-.link-button:hover, .features a:hover {
+.link-button:hover {
   background: #44bd32;
 }
 
+/* Breathing animation (if used) */
 .inhale {
   font-size: 1.5em;
   color: #40739e;
@@ -87,12 +109,9 @@ header p {
   50% { opacity: 1; transform: scale(1.05); }
 }
 
-#quote-box {
-  margin-top: 20px;
-  font-size: 1.1em;
-  color: #2f3640;
-  padding: 15px;
-  background: #dcdde1;
-  border-radius: 12px;
-  display: none;
+/* Responsive fix for small screens */
+@media (max-width: 500px) {
+  .link-button {
+    min-width: 100%;
+  }
 }
