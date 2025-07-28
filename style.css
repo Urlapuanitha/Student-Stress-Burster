@@ -1,6 +1,6 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to right, #d5fefd, #fef6e4); /* Mint to Blush */
+  background: linear-gradient(to right, #a1c4fd, #fbc2eb); /* Sky to Rose */
   margin: 0;
   padding: 0;
   display: flex;
@@ -14,13 +14,13 @@ body {
   background-color: #ffffff;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 600px;
 }
 
 h1 {
-  color: #00b894; /* Teal green */
+  color: #ff6b81; /* Rose */
   font-size: 2.5rem;
   margin-bottom: 12px;
 }
@@ -33,7 +33,7 @@ h1 {
 }
 
 button#quoteBtn {
-  background-color: #00b894;
+  background-color: #ff6b81;
   color: white;
   border: none;
   padding: 12px 22px;
@@ -42,11 +42,11 @@ button#quoteBtn {
   cursor: pointer;
   margin-bottom: 20px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
+  box-shadow: 0 4px 10px rgba(255, 107, 129, 0.4);
 }
 
 button#quoteBtn:hover {
-  background-color: #00897b;
+  background-color: #e55066;
   transform: scale(1.05);
 }
 
@@ -57,7 +57,7 @@ button#quoteBtn:hover {
 }
 
 .quote-box {
-  background-color: #ecf0f1;
+  background-color: #e0f7fa;
   padding: 15px 20px;
   border-radius: 12px;
   font-size: 1.1rem;
@@ -68,7 +68,7 @@ button#quoteBtn:hover {
 
 .activity-title {
   margin: 25px 0 15px;
-  color: #00b894;
+  color: #2980b9; /* Calm sky blue */
   font-size: 1.6rem;
   font-weight: 600;
 }
@@ -81,7 +81,7 @@ button#quoteBtn:hover {
 }
 
 .activity-button {
-  background-color: #ffeaa7;
+  background-color: #fbc2eb;
   color: #2d3436;
   padding: 12px 18px;
   text-decoration: none;
@@ -89,10 +89,10 @@ button#quoteBtn:hover {
   border-radius: 12px;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-size: 1rem;
-  box-shadow: 0 4px 8px rgba(255, 234, 167, 0.4);
+  box-shadow: 0 4px 8px rgba(251, 194, 235, 0.4);
 }
 
 .activity-button:hover {
-  background-color: #ffdd59;
+  background-color: #f48fb1;
   transform: translateY(-2px);
 }
