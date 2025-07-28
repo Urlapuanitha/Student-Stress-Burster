@@ -17,31 +17,23 @@
     <main>
       <section class="quote-section">
         <button id="quote-btn">💬 Show Quote</button>
-        <p class="subtitle">Click the button above to get inspired!</p>
-        <div id="quote-box" class="quote-box">Your mind will answer most questions if you learn to relax and wait for the answer.</div>
+        <p class="instruction">Click the button above to get inspired!</p>
+        <div id="quote-box" class="quote-box"></div>
       </section>
 
       <section class="actions">
-  <h2>🌈 Choose an Activity</h2>
-  <div class="button-group">
-    <a href="relax.html" class="link-button">🎵 Relax with Music</a>
-    <a href="breath.html" class="link-button">🧘 Guided Breathing</a>
-    <a href="game.html" class="link-button">🎮 Play Tic Tac Toe</a>
-    <a href="pomodoro.html" class="link-button">⏱️ Pomodoro Timer</a>
-    <a href="mood.html" class="link-button">📊 Track Your Mood</a>
-  </div>
-</section>
-
+        <h2>🌈 Choose an Activity</h2>
+        <div class="button-group">
+          <a href="relax.html" class="link-button">🎵 Relax with Music</a>
+          <a href="breath.html" class="link-button">🧘 Guided Breathing</a>
+          <a href="game.html" class="link-button">🎮 Play Tic Tac Toe</a>
+          <a href="pomodoro.html" class="link-button">⏱️ Pomodoro Timer</a>
+          <a href="mood.html" class="link-button">📊 Track Your Mood</a>
+        </div>
+      </section>
     </main>
   </div>
 
-  <script>
-    const btn = document.getElementById('quote-btn');
-    const box = document.getElementById('quote-box');
-
-    btn.addEventListener('click', () => {
-      box.style.display = 'block';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
