@@ -8,148 +8,68 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #fceabb, #f8b500);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       margin: 0;
-      padding: 0;
     }
+
     .container {
+      width: 90%;
       max-width: 800px;
-      margin: 60px auto;
-      background: #fff;
-      padding: 40px;
-      border-radius: 25px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
       text-align: center;
     }
+
     h2 {
-      font-size: 32px;
-      color: #222;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 28px;
     }
+
     p {
-      color: #666;
-      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
     }
-    .search {
-      margin: 30px auto 20px;
-      width: 100%;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      font-size: 16px;
-    }
-    .results {
-      margin-top: 10px;
-      text-align: left;
-      max-height: 150px;
-      overflow-y: auto;
-      border-radius: 10px;
-    }
-    .result-item {
-      display: flex;
-      align-items: center;
-      background: #f9f9f9;
-      margin: 5px 0;
-      padding: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .result-item:hover {
-      background: #e0e0e0;
-    }
-    .result-item img {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      margin-right: 10px;
-    }
+
     iframe {
-      width: 100%;
       border-radius: 12px;
-      margin-top: 25px;
     }
+
     .link-button {
-      display: inline-block;
-      background: #24d64c;
-      color: white;
-      font-weight: 600;
-      padding: 12px 25px;
       margin-top: 25px;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #1db954;
+      color: white;
+      font-weight: bold;
       text-decoration: none;
-      border-radius: 12px;
-      transition: background 0.3s;
+      border-radius: 10px;
     }
+
     .link-button:hover {
-      background: #1bb03b;
+      background-color: #169c45;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h2>🎵 Relaxing Music</h2>
-    <p>Let calming sounds soothe your mind...</p>
+    <h2>🎶 Chill with this Album</h2>
+    <p>Enjoy a relaxing time with music from Spotify!</p>
 
-    <div class="search">
-      <input type="text" id="searchInput" placeholder="Search music...">
-      <div id="results" class="results"></div>
-    </div>
+    <iframe style="border-radius:12px"
+      src="https://open.spotify.com/embed/album/2Lxoc72vRTGdQfMvj7Ovi1?utm_source=generator"
+      width="100%" height="352" frameBorder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy">
+    </iframe>
 
-    <iframe id="spotifyPlayer" src="https://open.spotify.com/embed/album/2Lxoc72vRTGdQfMvj7Ovi1?utm_source=generator" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
+    <br>
     <a href="index.html" class="link-button">⬅️ Back to Home</a>
   </div>
-
-  <script>
-    const playlists = [
-      {
-        name: "Relaxing Album",
-        url: "https://open.spotify.com/embed/album/2Lxoc72vRTGdQfMvj7Ovi1",
-        img: "https://i.scdn.co/image/ab67616d00001e02793eb34a7a20761d9b2e9fc9"
-      },
-      {
-        name: "Peaceful Piano",
-        url: "https://open.spotify.com/embed/playlist/37i9dQZF1DWU0ScTcjJBdj",
-        img: "https://i.scdn.co/image/ab67706f00000002fbbdf7b0e6c7dd9fa1e9f5cf"
-      },
-      {
-        name: "Calm Vibes",
-        url: "https://open.spotify.com/embed/playlist/37i9dQZF1DX3PIPIT6lEg5",
-        img: "https://i.scdn.co/image/ab67706f00000002b3a6a2a7dbd09b9f7392dc99"
-      },
-      {
-        name: "Chillout Lounge",
-        url: "https://open.spotify.com/embed/playlist/37i9dQZF1DWZqd5JICZI0u",
-        img: "https://i.scdn.co/image/ab67706f00000002fc5e4b038f78f6e344802c4d"
-      }
-    ];
-
-    const searchInput = document.getElementById("searchInput");
-    const resultsDiv = document.getElementById("results");
-    const spotifyPlayer = document.getElementById("spotifyPlayer");
-
-    searchInput.addEventListener("input", () => {
-      const keyword = searchInput.value.toLowerCase();
-      resultsDiv.innerHTML = "";
-
-      if (keyword.trim() === "") return;
-
-      playlists.forEach(pl => {
-        if (pl.name.toLowerCase().includes(keyword)) {
-          const item = document.createElement("div");
-          item.className = "result-item";
-          item.innerHTML = `<img src="${pl.img}" alt="cover"><span>${pl.name}</span>`;
-          item.onclick = () => {
-            spotifyPlayer.src = pl.url;
-            resultsDiv.innerHTML = "";
-            searchInput.value = pl.name;
-          };
-          resultsDiv.appendChild(item);
-        }
-      });
-    });
-  </script>
 </body>
 </html>
