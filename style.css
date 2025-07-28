@@ -1,6 +1,6 @@
 body {
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to right, #ffe29f, #ffa751);
+  background: linear-gradient(to right, #e0c3fc, #8ec5fc); /* soft lavender to sky blue */
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,27 +11,29 @@ body {
 
 .container {
   text-align: center;
-  background-color: white;
+  background-color: #ffffff;
   padding: 40px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   width: 90%;
   max-width: 600px;
 }
 
 h1 {
-  color: #ff6b6b;
+  color: #9b59b6; /* soft purple */
   font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
 .subtitle {
   font-size: 1.2rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #555;
+  font-style: italic;
 }
 
 button#quoteBtn {
-  background-color: #ff6b6b;
+  background-color: #9b59b6;
   color: white;
   border: none;
   padding: 12px 20px;
@@ -39,31 +41,35 @@ button#quoteBtn {
   font-size: 1rem;
   cursor: pointer;
   margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(155, 89, 182, 0.3);
 }
 
 button#quoteBtn:hover {
-  background-color: #ff5252;
+  background-color: #8e44ad;
 }
 
 .instruction {
   font-size: 1rem;
-  color: #555;
-  margin-bottom: 10px;
+  color: #444;
+  margin-bottom: 15px;
 }
 
 .quote-box {
-  background-color: #e2e2e2;
-  padding: 15px;
-  border-radius: 10px;
+  background-color: #dfe6e9;
+  padding: 15px 20px;
+  border-radius: 12px;
   font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 25px;
+  color: #2d3436;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .activity-title {
-  margin: 20px 0;
-  color: #444;
-  font-size: 1.5rem;
+  margin: 25px 0 15px;
+  color: #6c5ce7;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
 .buttons {
@@ -74,16 +80,18 @@ button#quoteBtn:hover {
 }
 
 .activity-button {
-  background-color: #50db4c;
+  background-color: #74b9ff; /* sky blue */
   color: white;
   padding: 12px 18px;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(116, 185, 255, 0.3);
 }
 
 .activity-button:hover {
-  background-color: #45c144;
+  background-color: #3498db;
+  transform: translateY(-2px);
 }
