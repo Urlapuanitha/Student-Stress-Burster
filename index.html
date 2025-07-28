@@ -11,30 +11,78 @@
   <div class="container">
     <header>
       <h1>✨ Ani The Stress Buster ✨</h1>
-      <p class="subtitle">Your one-stop space to relax, breathe, and smile!</p>
+      <p><em>Your one-stop space to relax, breathe, and smile!</em></p>
+      <button id="quoteBtn">💬 Show Quote</button>
+      <p class="quote">Click the button above to get inspired!</p>
+      <div class="quote-box" id="quoteBox">Take a deep breath, it’s just a bad day, not a bad life.</div>
     </header>
 
-    <main>
-      <section class="quote-section">
-        <button id="quote-btn">💬 Show Quote</button>
-        <p class="instruction">Click the button above to get inspired!</p>
-        <div id="quote-box" class="quote-box"></div>
-      </section>
+    <h2>🌈 Choose an Activity</h2>
+    <div class="activity-grid">
+      <a href="relax.html" class="btn music">🎵 Relax with Music</a>
+      <a href="breathing.html" class="btn breathing">🧘 Guided Breathing</a>
+      <a href="tic-tac-toe.html" class="btn tic">🎮 Play Tic Tac Toe</a>
+      <a href="pomodoro.html" class="btn pomo">⏱️ Pomodoro Timer</a>
+      <a href="mood.html" class="btn mood">📊 Track Your Mood</a>
+      <button class="btn journal" onclick="openJournal()">📓 Gratitude Journal</button>
+    </div>
 
-      <section class="actions">
-  <h2>🌈 Choose an Activity</h2>
-  <div class="button-group">
-    <a href="relax.html" class="link-button">🎵 Relax with Music</a>
-    <a href="breath.html" class="link-button">🧘 Guided Breathing</a>
-    <a href="game.html" class="link-button">🎮 Play Tic Tac Toe</a>
-    <a href="pomodoro.html" class="link-button">⏱️ Pomodoro Timer</a>
-    <a href="mood.html" class="link-button">📊 Track Your Mood</a>
-  </div>
-</section>
-
-    </main>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="darkToggle">
+        <span class="slider round"></span>
+      </label>
+      <span>🌙 Dark Mode</span>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Gratitude Journal Modal -->
+  <div class="journal-popup" id="journalPopup">
+    <div class="popup-content">
+      <h3>Gratitude Journal</h3>
+      <textarea id="journalText" placeholder="Write something you're grateful for..."></textarea>
+      <div class="popup-buttons">
+        <button onclick="saveJournal()">Save</button>
+        <button onclick="closeJournal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Quote button
+    document.getElementById("quoteBtn").addEventListener("click", function () {
+      const quotes = [
+        "You are stronger than you think.",
+        "This too shall pass.",
+        "Take a moment to breathe.",
+        "You’ve survived 100% of your worst days.",
+        "You’re doing better than you think."
+      ];
+      const random = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quoteBox").innerText = quotes[random];
+    });
+
+    // Gratitude Journal
+    function openJournal() {
+      document.getElementById("journalPopup").style.display = "block";
+      document.getElementById("journalText").value = localStorage.getItem("journalEntry") || "";
+    }
+
+    function closeJournal() {
+      document.getElementById("journalPopup").style.display = "none";
+    }
+
+    function saveJournal() {
+      const entry = document.getElementById("journalText").value;
+      localStorage.setItem("journalEntry", entry);
+      alert("Saved!");
+    }
+
+    // Dark mode toggle
+    const darkToggle = document.getElementById("darkToggle");
+    darkToggle.addEventListener("change", function () {
+      document.body.classList.toggle("dark-mode", this.checked);
+    });
+  </script>
 </body>
 </html>
