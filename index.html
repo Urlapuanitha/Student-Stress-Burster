@@ -9,35 +9,35 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1>✨ Ani The Stress Buster ✨</h1>
-      <p><em>Your one-stop space to relax, breathe, and smile!</em></p>
-      <button id="quoteBtn">💬 Show Quote</button>
-      <p class="quote">Click the button above to get inspired!</p>
-      <div class="quote-box" id="quoteBox">Take a deep breath, it’s just a bad day, not a bad life.</div>
-    </header>
+    <h1>✨ Ani The Stress Buster ✨</h1>
+    <p class="subtitle"><em>Your one-stop space to relax, breathe, and smile!</em></p>
 
-    <h2>🌈 Choose an Activity</h2>
-    <div class="activity-grid">
-      <a href="relax.html" class="btn music">🎵 Relax with Music</a>
-      <a href="breathing.html" class="btn breathing">🧘 Guided Breathing</a>
-      <a href="tic-tac-toe.html" class="btn tic">🎮 Play Tic Tac Toe</a>
-      <a href="pomodoro.html" class="btn pomo">⏱️ Pomodoro Timer</a>
-      <a href="mood.html" class="btn mood">📊 Track Your Mood</a>
+    <button id="quoteBtn">💬 Show Quote</button>
+    <p class="instruction">Click the button above to get inspired!</p>
+    <div id="quoteDisplay" class="quote-box">Take a deep breath, it’s just a bad day, not a bad life.</div>
+
+    <h2 class="activity-title">🌈 Choose an Activity</h2>
+    <div class="buttons">
+      <a href="relax.html" class="activity-button">🎵 Relax with Music</a>
+      <a href="breathing.html" class="activity-button">🧘 Guided Breathing</a>
+      <a href="tic-tac-toe.html" class="activity-button">🎮 Play Tic Tac Toe</a>
+      <a href="pomodoro.html" class="activity-button">⏱️ Pomodoro Timer</a>
+      <a href="mood.html" class="activity-button">📊 Track Your Mood</a>
     </div>
   </div>
 
   <script>
-    document.getElementById("quoteBtn").addEventListener("click", function () {
-      const quotes = [
-        "You are stronger than you think.",
-        "This too shall pass.",
-        "Take a moment to breathe.",
-        "You’ve survived 100% of your worst days.",
-        "You’re doing better than you think."
-      ];
-      const random = Math.floor(Math.random() * quotes.length);
-      document.getElementById("quoteBox").innerText = quotes[random];
+    const quotes = [
+      "Breathe in courage, breathe out fear.",
+      "Take a deep breath, it’s just a bad day, not a bad life.",
+      "You’re doing better than you think.",
+      "Inhale peace, exhale stress.",
+      "Be gentle with yourself, you’re doing the best you can."
+    ];
+
+    document.getElementById('quoteBtn').addEventListener('click', function () {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('quoteDisplay').textContent = randomQuote;
     });
   </script>
 </body>
