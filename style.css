@@ -1,5 +1,4 @@
-/* style.css */
-
+/* Reset & base layout */
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
@@ -21,6 +20,7 @@ body {
   text-align: center;
 }
 
+/* Header */
 header h1 {
   font-size: 2.5em;
   margin-bottom: 10px;
@@ -33,6 +33,13 @@ header p {
   color: #555;
 }
 
+.subtitle {
+  font-style: italic;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* Quote button and box */
 #quote-btn {
   background: #ff6b6b;
   border: none;
@@ -49,12 +56,6 @@ header p {
   background: #e84118;
 }
 
-.subtitle {
-  font-style: italic;
-  margin-bottom: 20px;
-  color: #444;
-}
-
 .quote-box {
   margin-top: 20px;
   font-size: 1.1em;
@@ -65,7 +66,7 @@ header p {
   display: none;
 }
 
-/* Action section */
+/* Activity section */
 .actions h2 {
   font-size: 1.5em;
   margin-bottom: 15px;
@@ -74,29 +75,29 @@ header p {
 .button-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
   justify-content: center;
-  margin-bottom: 20px;
+  gap: 15px;
+  padding: 10px 0;
 }
 
 .link-button {
   background: #4cd137;
-  color: #fff;
-  padding: 10px 16px;
+  color: white;
+  padding: 12px 18px;
   border-radius: 10px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease;
   font-weight: bold;
-  display: inline-block;
-  min-width: 160px;
+  flex: 1 1 200px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .link-button:hover {
   background: #44bd32;
 }
 
-/* Breathing animation (if used) */
+/* Optional breathing animation (if used in other pages) */
 .inhale {
   font-size: 1.5em;
   color: #40739e;
@@ -109,9 +110,9 @@ header p {
   50% { opacity: 1; transform: scale(1.05); }
 }
 
-/* Responsive fix for small screens */
+/* Responsive design for small screens */
 @media (max-width: 500px) {
   .link-button {
-    min-width: 100%;
+    flex: 1 1 100%;
   }
 }
